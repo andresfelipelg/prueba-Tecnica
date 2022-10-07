@@ -37,6 +37,7 @@ class AreasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([]);
 
         $areas = new Area();
         $areas->nombre = $request->nombre;

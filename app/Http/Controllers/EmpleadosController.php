@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Area;
 use Illuminate\Http\Request;
 
 class EmpleadosController extends Controller
@@ -14,7 +15,10 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
+        $empleados = Empleado::all();
+        $areas = Area::all();
 
+        return view('empleados.index',compact('empleados','areas'));
     }
 
     /**
@@ -24,7 +28,8 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        return view ('empleados.create');
+        $areas = Area::all();
+        return view ('empleados.create',compact('areas'));
 
     }
 
@@ -44,6 +49,8 @@ class EmpleadosController extends Controller
         $empleados->boletin = $request->boletin;
         $empleados->descripcion = $request->descripcion;
         $empleados->save();
+
+        return redirect(route('empleados.index'));
 
 
     }
@@ -67,7 +74,11 @@ class EmpleadosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $empleado = Area::find($id);
+        $areas = Area::all();
+
+        return view('empleados.edit',compact('empleado','areas'));
+
     }
 
     /**
@@ -79,8 +90,18 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $empleado = Empleado::find($id);
+        $empleado->nombre = $request->nombre;
+        $empleado->email = $request->email;
+        $empleado->sexo = $request->sexo;
+        $empleado->area_id = $request->area_id;
+        $empleado->boletin = $request->boletin;
+        $empleado->descripcion = $request->descripcion;
+        $empleado->save();
+
+        return redirect(route('empleados.index'));
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -92,4 +113,5 @@ class EmpleadosController extends Controller
     {
         //
     }
+
 }

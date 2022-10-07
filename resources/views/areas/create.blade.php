@@ -7,8 +7,13 @@
     @csrf
   <div class="mb-3">
     <label for="nombrecompleto" class="form-label">Nombre del Area *</label>
-    <input type="text" class="form-control" name="nombre" id="area">
+    <input type="text" class="form-control" name="nombre" id="nombre">
+    @error('nombre')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
 
   <button type="submit" class="btn btn-primary mt-2" id="guardar">Guardar</button>
 </form>
+
+<script src="/js/area.js"></script>
 @endsection

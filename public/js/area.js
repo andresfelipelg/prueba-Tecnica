@@ -1,22 +1,18 @@
 const datos = {
-    nombrecompleto: '',
-    email: '',
-    descripcion: '',
+    nombre: '',
 }
 
-const nombrecompleto = document.querySelector('#nombrecompleto');
-const email = document.querySelector('#email');
-const descripcion = document.querySelector('#descripcion');
-const formulario = document.querySelector('#formulario');
+const nombre = document.querySelector('#nombre');
+const guardar = document.querySelector('#guardar');
 
 
 formulario.addEventListener('submit',function(e){
 
 
-    const {nombrecompleto,email,descripcion} = datos;
+    const {nombre} = datos;
 
     //comprobando los campos
-    if (nombrecompleto === '' || email === '', descripcion === '') {
+    if (nombre === '') {
         mostrarError('Los campos con asteriscos (*) son obligatorios');
         e.preventDefault()
         guardar.disabled = true;
@@ -27,9 +23,8 @@ formulario.addEventListener('submit',function(e){
     mostrarMensaje("Formulario enviando correctamente");
 })
 
-nombrecompleto.addEventListener('input', leerTexto);
-email.addEventListener('input', leerTexto);
-descripcion.addEventListener('input', leerTexto);
+nombre.addEventListener('input', leerTexto);
+
 
 
 
@@ -70,11 +65,11 @@ function mostrarError(mensaje) {
 
     formulario.prepend(error);
 
-    //despues de 5 segundo desaparece el error
+    //despues de 3 segundo desaparece el error
 
     setTimeout(()=>{
         error.remove();
         guardar.disabled = false;
-    },5000)
+    },3000)
 
 }
