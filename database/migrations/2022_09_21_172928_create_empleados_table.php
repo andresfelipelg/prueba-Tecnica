@@ -20,8 +20,8 @@ return new class extends Migration
             $table->char('sexo',1); // Campo de tipo Radio Button. M para el Masculino. F para el femenino. Obligatorio.
             $table->unsignedBigInteger('area_id'); // Area de la empresa a la que pertenece el empleado. Campo de tipo Select. Obligatorio.
             $table->foreign('area_id','fk_area_empleado')->references('id')->on('areas');
-            $table->integer('boletin'); // 1 Para recibir boletín. 0 para No recibir boletín. Campo de tipo Checkbox. Opcional.
             $table->text('descripcion'); //Se describe la experiencia del empleado. Campo de tipo textarea. Obligatorio.
+            $table->integer('boletin'); // 1 Para recibir boletín. 0 para No recibir boletín. Campo de tipo Checkbox. Opcional.
             $table->timestamps();
         });
     }

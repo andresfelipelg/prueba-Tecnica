@@ -1,24 +1,16 @@
 <?php
 
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\AreasController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//crud empelados
+//crud empleados
 Route::get('/empleados/index',[EmpleadosController::class,'index'])->name('empleados.index');
 Route::get('/empleados/create',[EmpleadosController::class,'create'])->name('empleados.create');
 Route::post('/empleados/store',[EmpleadosController::class,'store'])->name('empleados.store');
@@ -28,3 +20,10 @@ Route::put('/empleados/update/{id}',[EmpleadosController::class,'update'])->name
 Route::delete('/empleados/delete/{id}',[EmpleadosController::class,'destroy'])->name('empleados.delete');
 
 
+//crud areas
+Route::get('/areas/index',[AreasController::class,'index'])->name('areas.index');
+Route::get('/areas/create',[AreasController::class,'create'])->name('areas.create');
+Route::post('/areas/store',[AreasController::class,'store'])->name('areas.store');
+Route::get('/areas/edit/{id}',[AreasController::class,'edit'])->name('areas.edit');
+Route::put('/areas/update/{id}',[AreasController::class,'update'])->name('areas.update');
+Route::delete('/areas/delete/{id}',[AreasController::class,'destroy'])->name('areas.delete');

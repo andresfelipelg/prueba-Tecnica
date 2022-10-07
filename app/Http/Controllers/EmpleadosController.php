@@ -40,7 +40,9 @@ class EmpleadosController extends Controller
         $empleados->nombre = $request->nombre;
         $empleados->email = $request->email;
         $empleados->sexo = $request->sexo;
-        $empleados->sexo = $request->sexo;
+        $empleados->area_id = $request->area_id;
+        $empleados->boletin = $request->boletin;
+        $empleados->descripcion = $request->descripcion;
         $empleados->save();
 
 
