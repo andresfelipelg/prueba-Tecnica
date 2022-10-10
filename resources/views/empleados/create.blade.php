@@ -81,7 +81,7 @@
 </div>
   <button type="submit" class="btn btn-primary mt-2" id="guardar">Guardar</button>
 </form>
-{{-- <script src="/js/index.js"></script> --}}
+<script src="/js/index.js"></script>
 @endsection
 
 
