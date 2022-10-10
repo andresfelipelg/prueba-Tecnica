@@ -41,6 +41,26 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nombre' => 'required',
+            'email' => 'required',
+            'sexo' => 'required',
+            'area_id' => 'required',
+            'boletin' => 'required',
+            'descripcion' => 'required',
+
+        ],[
+            'nombre.required' => 'El nombre del usuario es requerido',
+            'email.required' => 'El Email es requerido',
+            'sexo.required' => 'El sexo es requerido',
+            'area_id.required' => 'El Area es requerida',
+            'boletin.required' => 'El boletin es requerido',
+            'descripcion.required' => 'La descripcion es requerida',
+
+        ]);
+
+
         $empleados = new Empleado();
         $empleados->nombre = $request->nombre;
         $empleados->email = $request->email;

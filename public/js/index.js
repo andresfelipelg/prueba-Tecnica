@@ -10,18 +10,20 @@ const descripcion = document.querySelector('#descripcion');
 const formulario = document.querySelector('#formulario');
 
 
-formulario.addEventListener('submit',function(e){
 
+formulario.addEventListener('submit',function(e){
+    const sexo = document.querySelector('input[name="sexo"]:checked');
 
     const {nombrecompleto,email,descripcion} = datos;
 
     //comprobando los campos
-    if (nombrecompleto === '' || email === '', descripcion === '') {
+    if (nombrecompleto === '' || email === '' ||  descripcion === '' || !sexo) {
         mostrarError('Los campos con asteriscos (*) son obligatorios');
         e.preventDefault()
         guardar.disabled = true;
-        return;
+        return
     }
+
 
 
     mostrarMensaje("Formulario enviando correctamente");

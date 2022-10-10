@@ -18,15 +18,13 @@
       </tr>
     </thead>
     <tbody>
-        @foreach ( $empleados as $empleado,)
+        @foreach ( $empleados as $empleado)
       <tr>
         <td>{{ $empleado->id }}</td>
         <td>{{ $empleado->nombre }}</td>
         <td>{{ $empleado->email }}</td>
         <td>{{ $empleado->sexo }}</td>
-        {{-- @foreach ($areas as $area ) --}}
-        <td>{{ $area->nombre }}</td>
-        @endforeach
+        <td>{{ $empleado->area->nombre }}</td>
         <td>{{ $empleado->boletin }}</td>
         <td>
             <form action="{{ route('empleados.delete', $empleado->id) }}" method="POST">
